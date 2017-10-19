@@ -36,6 +36,12 @@ class Task
     private $content;
 
     /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $author;
+
+    /**
      * @ORM\Column(type="boolean")
      */
     private $isDone;
@@ -79,6 +85,30 @@ class Task
     public function setContent($content)
     {
         $this->content = $content;
+    }
+
+    /**
+     * Set author
+     *
+     * @param \AppBundle\Entity\User $author
+     *
+     * @return Task
+     */
+    public function setAuthor(\AppBundle\Entity\User $author)
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * Get author
+     *
+     * @return \S7tH\UserBundle\Entity\User
+     */
+    public function getAuthor()
+    {
+        return $this->author;
     }
 
     public function isDone()

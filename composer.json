@@ -1,10 +1,11 @@
 {
-    "name": "saro0h/to-do-list",
+    "name": "S7tH/to-do-list",
     "license": "proprietary",
     "type": "project",
+    "description": "customable planning",
     "autoload": {
         "psr-4": {
-            "": "src/"
+            "AppBundle": "src/"
         },
         "classmap": [
             "app/AppKernel.php",
