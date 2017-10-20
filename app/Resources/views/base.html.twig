@@ -40,6 +40,10 @@
             <div class="row">
                 <a href="{{ path('user_create') }}" class="btn btn-primary">Créer un utilisateur</a>
 
+                <a href="{{ path('homepage') }}" class="btn btn-primary">Accueil</a>
+                <a href="{{ path('task_list') }}" class="btn btn-primary">Voir la liste des tâches</a>
+                <a href="{{ path('user_list') }}" class="btn btn-primary">Voir la liste des utilisateurs</a>
+
                 {% if app.user %}
                 <a href="{{ path('logout') }}" class="pull-right btn btn-danger">Se déconnecter</a>
                 {% endif %}

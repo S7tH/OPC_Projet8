@@ -13,9 +13,15 @@ class TaskController extends Controller
     /**
      * @Route("/tasks", name="task_list")
      */
-    public function listAction()
+    public function listAction(Request $request)
     {
-        return $this->render('task/list.html.twig', ['tasks' => $this->getDoctrine()->getRepository('AppBundle:Task')->findAll()]);
+        //this request allow us to put a condition to displaying only the tasks which are over. 
+        $overtasks = $request->query->get('overtasks');
+
+        return $this->render('task/list.html.twig', array(
+                                'tasks' => $this->getDoctrine()->getRepository('AppBundle:Task')->findAll(),
+                                'overtasks' => $overtasks
+                            ));
     }
 
     /**
