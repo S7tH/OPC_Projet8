@@ -116,7 +116,11 @@ class User implements UserInterface
     {
         $this->rolename = $rolename;
 
-        self::setRoles([self::getRolename()]);
+        //if the user has not change her role, rolename == null else we change his role
+        if(self::getRolename() !== null)
+        {
+            self::setRoles([self::getRolename()]);
+        }
     }
 
     public function eraseCredentials()
