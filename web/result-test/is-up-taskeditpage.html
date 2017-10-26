@@ -1,0 +1,94 @@
+PHPUnit 6.4.3 by Sebastian Bergmann and contributors.
+
+.                                                                   1 / 1 (100%)<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>To Do List app</title>
+
+        <!-- Bootstrap Core CSS -->
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="/css/shop-homepage.css" rel="stylesheet">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+        <nav class="navbar navbar-light navbar-fixed-top" style="background-color: #e3f2fd;" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">To Do List app</a>
+
+                    <img src="/img/Logo_OpenClassrooms.png" alt="OpenClassrooms" />
+                </div>
+            </div>
+        </nav>
+
+        <!-- Page Content -->
+        <div class="container">
+            <div class="row">
+                <a href="/users/create" class="btn btn-primary">Créer un utilisateur</a>
+
+                
+                                <a href="/login" class="btn btn-success">Se connecter</a>
+                            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    
+                    
+                    
+                                        <img class="slide-image" src="/img/todolist_homepage.jpg" alt="todo list">                </div>
+            </div>
+
+            <br />
+
+            <div class="row">
+                <div class="col-md-12">
+                        <div class="row">
+        <form name="task" method="post" action="/tasks/1/edit">
+            <div id="task"><div class="form-group"><label class="control-label required" for="task_title">Title</label><input type="text" id="task_title" name="task[title]" required="required" class="form-control" value="test title" /></div><div class="form-group"><label class="control-label required" for="task_content">Content</label><textarea id="task_content" name="task[content]" required="required" class="form-control">test content</textarea></div><input type="hidden" id="task__token" name="task[_token]" value="COfww_CM487sLMPAtPihdqk6ZnyCyJ6_B4YQK9IiIVg" /></div>
+
+            <button type="submit" class="btn btn-success pull-right">Modifier</button>
+        </form>
+    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+
+        <div class="container">
+
+            <hr>
+            <footer>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p class="pull-right">Copyright &copy; OpenClassrooms</p>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+
+        <script src="/js/jquery.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+    </body>
+</html>
+
+
+Time: 496 ms, Memory: 22.00MB
+
+[30;42mOK (1 test, 1 assertion)[0m

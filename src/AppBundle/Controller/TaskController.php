@@ -31,8 +31,13 @@ class TaskController extends Controller
     {
         $task = new Task();
         $user = $this->getUser();
-        $task->setAuthor($user);
 
+        //if user don't exist author will be null then anonymous
+        if($user)
+        {
+            $task->setAuthor($user);
+        }
+        
         $form = $this->createForm(TaskType::class, $task);
 
         $form->handleRequest($request);
@@ -56,22 +61,35 @@ class TaskController extends Controller
      */
     public function editAction(Task $task, Request $request)
     {
-        $form = $this->createForm(TaskType::class, $task);
+        //we recover the user session
+        $session = $this->getUser();
+        
+        //we compare the user session with the owner of the task
+        if($session == $task->getAuthor() || $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN'))
+        {
+            $form = $this->createForm(TaskType::class, $task);
 
-        $form->handleRequest($request);
+            $form->handleRequest($request);
 
-        if ($form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            if ($form->isValid()) {
+                $this->getDoctrine()->getManager()->flush();
 
-            $this->addFlash('success', 'La tâche a bien été modifiée.');
+                $this->addFlash('success', 'La tâche a bien été modifiée.');
 
-            return $this->redirectToRoute('task_list');
-        }
+                return $this->redirectToRoute('task_list');
+            }
 
-        return $this->render('task/edit.html.twig', [
+            return $this->render('task/edit.html.twig', [
             'form' => $form->createView(),
             'task' => $task,
-        ]);
+            ]);
+        }
+        else
+        {
+            $this->addFlash('failed', 'Vous devez être soit l\'autheur de cette tâche soit administrateur pour pouvoir l\'editer.');
+            
+            return $this->redirectToRoute('task_list');
+        }
     }
 
     /**
@@ -94,9 +112,9 @@ class TaskController extends Controller
     {
         //we recover the user session
         $session = $this->getUser();
- 
+
         //we compare the user session with the owner of the task
-        if($session == $task->getAuthor())
+        if($session == $task->getAuthor() || ($task->getAuthor() === null && $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')))
         {
             $em = $this->getDoctrine()->getManager();
             $em->remove($task);
