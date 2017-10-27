@@ -102,6 +102,46 @@ class UserControllerTest extends AbstractControllerTest
         //echo $this->client->getResponse()->getContent();
     }
 
+
+    public function testUserEditAccessDenied()
+    {
+
+        //user is authenticated as user or anonymous
+        //switch between twice in remove the double slash
+        $user = $this->logUser();
+        //$user= 'anonymous';
+
+        /*calling the request method with 2 parameters
+        1/ the http method 2/ the uri what we want to recover*/
+        $this->client->request('GET', '/users/5/edit');
+        
+        //recover the response with status code
+        $response = $this->client->getResponse()->getStatusCode();
+            
+        if($this->client->getResponse()->isNotFound())
+        {
+            //The test with the code status expected
+            $this->assertSame(404,$response);
+        }
+        else
+        {
+            if($user == 'anonymous')
+            {
+                //The test with the code status expected here 302 if user is not authenticated
+                //redirection to the login page 
+                $this->assertSame(302,$response);
+            }
+            else
+            {
+                //The test with the code status expected here 403 if user has not the rights
+                $this->assertSame(403,$response);
+            }
+        }
+        
+        //To display the html code remove the double slash ahead the following line
+        //echo $this->client->getResponse()->getContent();
+    }
+
     public function testUserEditpageIsOk()
     {
         //user is authenticated as admin
@@ -127,7 +167,11 @@ class UserControllerTest extends AbstractControllerTest
         
             $form['user_edit[password][first]'] = 'passtest';
             $form['user_edit[password][second]'] = 'passtest';
-        
+
+            $form['user_edit[rolename]'] = 2; //ROLE_ADMIN
+                                         //0 //null
+                                         //1 //ROLE_USER
+
             //Submit the form
             $this->client->submit($form);
     

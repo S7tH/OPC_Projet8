@@ -193,6 +193,86 @@ class TaskControllerTest extends AbstractControllerTest
 
     }
 
+    public function testTaskDeleteAccessDenied()
+    {
+        //user is authenticated as user. Only the author-creator is be able to delete this own task
+        $this->logUser();
+
+        /*calling the request method with 2 parameters
+        1/ the http method 2/ the uri what we want to recover*/
+        $this->client->request('GET', '/tasks/7/delete');
+        
+        //recover the response with status code
+        $response = $this->client->getResponse()->getStatusCode();
+            
+        if($this->client->getResponse()->isNotFound())
+        {
+            //The test with the code status expected
+            $this->assertSame(404,$response);
+        }
+        else
+        {
+            //The test with the code status expected here 403 if user has not the rights
+            $this->assertSame(302,$response);
+
+            //to can be able to watch the result
+            $crawler = $this->client->followRedirect();
+            
+            //recover the response with status code
+            $response = $this->client->getResponse()->getStatusCode();
+            
+            //The test with the code status expected
+            $this->assertSame(200,$response);
+            
+            /*The test with the number of time that the element dom should be apear in first parameter
+            , the dom element in second parameter*/
+            $this->assertSame(1,$crawler->filter('div.alert.alert-danger')->count());
+        }
+        
+        //To display the html code remove the double slash ahead the following line
+        echo $this->client->getResponse()->getContent();
+    }
+
+    public function testTaskDeleteAnonymousAccessDenied()
+    {
+        //user is authenticated as user. Only admin is be able to delete an anonymous task
+        $this->logUser();
+
+        /*calling the request method with 2 parameters
+        1/ the http method 2/ the uri what we want to recover here task 6 has an anymous author*/
+        $this->client->request('GET', '/tasks/6/delete');
+        
+        //recover the response with status code
+        $response = $this->client->getResponse()->getStatusCode();
+            
+        if($this->client->getResponse()->isNotFound())
+        {
+            //The test with the code status expected
+            $this->assertSame(404,$response);
+        }
+        else
+        {
+            //The test with the code status expected here 403 if user has not the rights
+            $this->assertSame(302,$response);
+
+            //to can be able to watch the result
+            $crawler = $this->client->followRedirect();
+            
+            //recover the response with status code
+            $response = $this->client->getResponse()->getStatusCode();
+            
+            //The test with the code status expected
+            $this->assertSame(200,$response);
+            
+            /*The test with the number of time that the element dom should be apear in first parameter
+            , the dom element in second parameter*/
+            $this->assertSame(1,$crawler->filter('div.alert.alert-danger')->count());
+        }
+        
+        //To display the html code remove the double slash ahead the following line
+        echo $this->client->getResponse()->getContent();
+    }
+
     public function testTaskDeletepageIsOk()
     {
         //user is authenticated
