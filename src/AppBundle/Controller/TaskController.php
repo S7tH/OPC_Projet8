@@ -65,7 +65,7 @@ class TaskController extends Controller
         $session = $this->getUser();
         
         //we compare the user session with the owner of the task
-        if($session == $task->getAuthor() || $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN'))
+        if(($session == $task->getAuthor() && $task->getAuthor() !== null) || ($task->getAuthor() === null && $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')))
         {
             $form = $this->createForm(TaskType::class, $task);
 
