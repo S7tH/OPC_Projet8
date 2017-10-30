@@ -11,8 +11,9 @@ security:
         #------
         firewalls:
             main:
-                pattern: ^/     <h5>#-> all the site is under this main firewall</h5>
+                pattern: ^/     
                 #----------
+        <h5>#-> all the site is under this main firewall</h5>
         access_control:
             #--------------
             - { path: ^/, roles: ROLE_USER }    <h5>#-> to access you must be registred as ROLE_USER</h5>
@@ -32,8 +33,7 @@ security:
                 #----------
         access_control:
             #--------------
-            - { path: ^/users, roles: IS_AUTHENTICATED_ANONYMOUSLY } <h5>#-> Everyone can access to this page '/users'</h5>
-            <h5>#-> so '/users/create' works too and a visitor can create an account</h5>
+            - { path: ^/users, roles: IS_AUTHENTICATED_ANONYMOUSLY } <h5>#-> Everyone can access to this page '/users',so '/users/create' works too and a visitor can create an account</h5>
             #--------------------------------
 </pre>
 
@@ -49,13 +49,13 @@ security:
             main:
                 anonymous: ~
                 pattern: ^/
-                form_login: <h5>#-> this setting allow visitors to authenticate themselve with a form when they arrive to the homepage</h5>
+                form_login:
                     login_path: login
                     check_path: login_check
                     always_use_default_target_path:  true
                     default_target_path:  /
                 logout: ~
-
+        <h5>#-> this setting allow visitors to authenticate themselve with a form when they arrive to the homepage</h5>
         access_control:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }  <h5>#-> Everyone can access to this form login page</h5>
         #----------------------------------
@@ -71,10 +71,11 @@ class UserController extends Controller
     #----------------------
     /**
      * @Route("/users/{id}/edit", name="user_edit")
-     * @Security("has_role('ROLE_ADMIN')") <h5>#-> only user admin can be able to call this method</h5>
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function editAction(User $user, Request $request)
     #--------------------------------
+    <h5>#-> only user admin can be able to call this method (* @Security("has_role('ROLE_ADMIN')"))</h5>
 </pre>
 
 - in app/Resources/user/list.html.twig
@@ -82,13 +83,16 @@ class UserController extends Controller
 <pre>
 #--------------------------------
 {% if is_granted('ROLE_ADMIN') %}
-    <th>Actions</th>    <h5>#-> The action column don't display its if the user is not an admin</h5>
+
+    Actions
+    <h5>#-> The action column don't display its if the user is not an admin</h5>
 {% endif %}
 #---------------------------------
-{% if is_granted('ROLE_ADMIN') %} <h5>#-> the link to the edit page don"t display its if the user is not an admin</h5>
-    <td>
-        <a href="{{ path('user_edit', {'id' : user.id}) }}" class="btn btn-success btn-sm">Edit</a>
-    </td>
+{% if is_granted('ROLE_ADMIN') %}
+<h5>#-> the link to the edit page don"t display its if the user is not an admin</h5>
+
+    Edit
+    
 {% endif %}
 #---------------------------------
 </pre>
@@ -101,6 +105,7 @@ class UserController extends Controller
 providers:
     doctrine:
         entity:
-            class: AppBundle:User   #-> <h5>#-> User entity</h5>
+            class: AppBundle:User
+            <h5>#-> User entity </h5>
             property: username 
 </pre>
