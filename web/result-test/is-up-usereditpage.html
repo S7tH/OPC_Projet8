@@ -1,0 +1,94 @@
+PHPUnit 6.4.3 by Sebastian Bergmann and contributors.
+
+.                                                                   1 / 1 (100%)<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>To Do List app</title>
+
+        <!-- Bootstrap Core CSS -->
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="/css/shop-homepage.css" rel="stylesheet">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+        <nav class="navbar navbar-light navbar-fixed-top" style="background-color: #e3f2fd;" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">To Do List app</a>
+
+                    <img src="/img/Logo_OpenClassrooms.png" alt="OpenClassrooms" />
+                </div>
+            </div>
+        </nav>
+
+        <!-- Page Content -->
+        <div class="container">
+            <div class="row">
+                <a href="/users/create" class="btn btn-primary">Créer un utilisateur</a>
+
+                
+                                <a href="/login" class="btn btn-success">Se connecter</a>
+                            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    
+                    
+                    
+                    <h1>Modifier <strong>userinit</strong></h1>                                    </div>
+            </div>
+
+            <br />
+
+            <div class="row">
+                <div class="col-md-12">
+                        <div class="row">
+        <form name="user_edit" method="post" action="/users/1/edit">
+        <div id="user_edit"><div class="form-group"><label class="control-label required" for="user_edit_username">Nom d&#039;utilisateur</label><input type="text" id="user_edit_username" name="user_edit[username]" required="required" class="form-control" value="userinit" /></div><div class="form-group"><label class="control-label required" for="user_edit_password_first">Votre mot de passe actuel</label><input type="password" id="user_edit_password_first" name="user_edit[password][first]" required="required" class="form-control" /></div><div class="form-group"><label class="control-label required" for="user_edit_password_second">Veuillez saisir votre mot de passe à nouveau</label><input type="password" id="user_edit_password_second" name="user_edit[password][second]" required="required" class="form-control" /></div><div class="form-group"><label class="control-label required" for="user_edit_email">Adresse email</label><input type="email" id="user_edit_email" name="user_edit[email]" required="required" class="form-control" value="userinit@test.com" /></div><div class="form-group"><label class="control-label required" for="user_edit_rolename">Changer ses droits</label><select id="user_edit_rolename" name="user_edit[rolename]" class="form-control"><option value="0" selected="selected">Ne pas changer de rôle</option><option value="1">Changer en simple utilisateur</option><option value="2">Changer en administrateur</option></select></div><input type="hidden" id="user_edit__token" name="user_edit[_token]" value="XJhlZMMQgvnPsqRPMXRMgJQ_gLIuGUUP2oKH662Mwjc" /></div>
+
+        <button type="submit" class="btn btn-success pull-right">Modifier</button>
+        </form>
+    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+
+        <div class="container">
+
+            <hr>
+            <footer>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p class="pull-right">Copyright &copy; OpenClassrooms</p>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+
+        <script src="/js/jquery.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+    </body>
+</html>
+
+
+Time: 492 ms, Memory: 22.00MB
+
+[30;42mOK (1 test, 1 assertion)[0m

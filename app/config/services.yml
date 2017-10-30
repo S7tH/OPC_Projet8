@@ -7,6 +7,7 @@ services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
-    appbundle.form.task:
-        class: AppBundle\Form\Type\TaskType
-        arguments: ["@security.token_storage"]
+
+#    appbundle.form.task:
+#        class: AppBundle\Form\Type\TaskType
+#        arguments: ["@security.token_storage"]

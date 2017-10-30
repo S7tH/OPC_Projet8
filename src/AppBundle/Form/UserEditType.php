@@ -13,10 +13,11 @@ class UserEditType extends AbstractType
         $builder
             ->remove('rolename')
             ->add('rolename', ChoiceType::class, array(
-                    'label' => 'Définir son rôle',
+                    'label' => 'Changer ses droits',
                     'choices' => array(
-                    'Simple utilisateur' => 'ROLE_USER',
-                    'Administrateur' => 'ROLE_ADMIN'
+                    'Ne pas changer de rôle' => null,
+                    'Changer en simple utilisateur' => 'ROLE_USER',
+                    'Changer en administrateur' => 'ROLE_ADMIN'
                 )
             ))
         ;

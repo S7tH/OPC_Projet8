@@ -93,18 +93,10 @@ class User implements UserInterface
         return $this->roles;
     }
 
-    /**
-     * Set roles
-     *
-     * @param array $roles
-     *
-     * @return User
-     */
     public function setRoles($roles)
     {
         $this->roles = $roles;
  
-        return $this;
     }
 
     public function getRolename()
@@ -116,7 +108,11 @@ class User implements UserInterface
     {
         $this->rolename = $rolename;
 
-        self::setRoles([self::getRolename()]);
+        //if the user has not change her role, rolename == null else we change his role
+        if(self::getRolename() !== null)
+        {
+            self::setRoles([self::getRolename()]);
+        }
     }
 
     public function eraseCredentials()
