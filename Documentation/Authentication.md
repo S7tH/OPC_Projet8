@@ -4,7 +4,8 @@ The security system is configured in app/config/security.yml.
 
 <h2>1) The website are entirely restricted as ROLE_USER:</h2>
 
-# app/config/security.yml
+- in app/config/security.yml
+
 security:
         #------
         firewalls:
@@ -17,6 +18,8 @@ security:
 
 <h2>2)To be a user, a visitor must have an account. To this he must have to created one of it
 The security must let to pass this form.</h2>
+
+- in app/config/security.yml
 
 security:
         #------
@@ -33,7 +36,8 @@ security:
 <h2>3) To pass from anonymous to user role you must be authenticated by a form login managed by AppBundle/Controller/SecurityController:loginAction.
 The security must call and let to pass this form.</h2>
 
-# app/config/security.yml
+- in app/config/security.yml
+
 security:
         #------
         firewalls:
@@ -54,7 +58,7 @@ security:
 
 <h2>4) Only users with ROLE_ADMIN can to edit the users</h2>
 
-//src/AppBundle/Controller/UserController.php
+- in src/AppBundle/Controller/UserController.php
 
 class UserController extends Controller
 {
@@ -66,7 +70,7 @@ class UserController extends Controller
     public function editAction(User $user, Request $request)
     #--------------------------------
 
-//app/Resources/user/list.html.twig
+- in app/Resources/user/list.html.twig
 
 #--------------------------------
 {% if is_granted('ROLE_ADMIN') %}
@@ -83,7 +87,8 @@ class UserController extends Controller
 
 <h2>5) The users are loaded from the database through the user entity:</h2>
 
-# app/config/security.yml
+- in app/config/security.yml
+
 providers:
     doctrine:
         entity:

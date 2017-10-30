@@ -19,4 +19,22 @@ After copied (clone or download) this repository github on your computer
 
 <h2><a href="/Documentation/Authentication.md">II/How works the Authentication</a></h2>
 
-<h2><a href="/Documentation/Contribution.md">III/How to contribute to that project</a></h2>
+
+<H2>III/How to contribute to that project</H2>
+
+To contribute to this project, please respect the following steps:
+
+1) fork the repository on your github account
+
+2) create a new branch ( /!\ don't use the master and dev branch, if not your aske to a pull request will be ignored)
+
+3) commit your features
+
+4) Open an issue or a pull request to suggest changes or additions check up if your suggest don't already exist in our issues.
+
+5) If your suggest is checked then validated, so create a pull request to this repository 
+
+
+Contributors :
+ - Sarah KHALIL
+ - Aurélien THERIOT
