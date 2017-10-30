@@ -10,11 +10,11 @@ security:
         #------
         firewalls:
             main:
-                pattern: ^/     #-><h3> all the site is under this main firewall</h3>
+                pattern: ^/     <h5>#-> all the site is under this main firewall</h5>
                 #----------
         access_control:
             #--------------
-            - { path: ^/, roles: ROLE_USER }    #-><h3> to access you must be registred as ROLE_USER</h3>
+            - { path: ^/, roles: ROLE_USER }    <h5>#-> to access you must be registred as ROLE_USER</h5>
 
 <h2>2)To be a user, a visitor must have an account. To this he must have to created one of it
 The security must let to pass this form.</h2>
@@ -25,12 +25,12 @@ security:
         #------
         firewalls:
             main:
-                pattern: ^/     #-> <h3>all the site is under this firewall</h3>
+                pattern: ^/      <h5> #->all the site is under this firewall</h5>
                 #----------
         access_control:
             #--------------
-            - { path: ^/users, roles: IS_AUTHENTICATED_ANONYMOUSLY } #-> <h3>Everyone can access to this page '/users'</h3>
-            #-> <h3>so '/users/create' works too and a visitor can create an account</h3>
+            - { path: ^/users, roles: IS_AUTHENTICATED_ANONYMOUSLY } <h5>#-> Everyone can access to this page '/users'</h5>
+            <h5>#-> so '/users/create' works too and a visitor can create an account</h5>
             #--------------------------------
 
 <h2>3) To pass from anonymous to user role you must be authenticated by a form login managed by AppBundle/Controller/SecurityController:loginAction.
@@ -44,7 +44,7 @@ security:
             main:
                 anonymous: ~
                 pattern: ^/
-                form_login: #-> <h3>this setting allow visitors to authenticate themselve with a form when they arrive to the homepage</h3>
+                form_login: <h5>#-> this setting allow visitors to authenticate themselve with a form when they arrive to the homepage</h5>
                     login_path: login
                     check_path: login_check
                     always_use_default_target_path:  true
@@ -52,7 +52,7 @@ security:
                 logout: ~
 
         access_control:
-        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY } #-> <h3>Everyone can access to this form login page</h3>
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY } #-> <h5>Everyone can access to this form login page</h5>
         #----------------------------------
 
 
@@ -65,7 +65,7 @@ class UserController extends Controller
     #----------------------
     /**
      * @Route("/users/{id}/edit", name="user_edit")
-     * @Security("has_role('ROLE_ADMIN')") #-> <h3>only user admin can be able to call this method</h3>
+     * @Security("has_role('ROLE_ADMIN')") <h5>#-> only user admin can be able to call this method</h5>
      */
     public function editAction(User $user, Request $request)
     #--------------------------------
@@ -74,10 +74,10 @@ class UserController extends Controller
 
 #--------------------------------
 {% if is_granted('ROLE_ADMIN') %}
-    <th>Actions</th>    #-> <h3>The action column don't display its if the user is not an admin</h3>
+    <th>Actions</th>    <h5>#-> The action column don't display its if the user is not an admin</h5>
 {% endif %}
 #---------------------------------
-{% if is_granted('ROLE_ADMIN') %} #-> <h3>the link to the edit page don"t display its if the user is not an admin</h3>
+{% if is_granted('ROLE_ADMIN') %} <h5>#-> the link to the edit page don"t display its if the user is not an admin</h5>
     <td>
         <a href="{{ path('user_edit', {'id' : user.id}) }}" class="btn btn-success btn-sm">Edit</a>
     </td>
@@ -92,5 +92,5 @@ class UserController extends Controller
 providers:
     doctrine:
         entity:
-            class: AppBundle:User   #-> <h3>User entity</h3>
+            class: AppBundle:User  <h5>#-> User entity</h5>
             property: username 
