@@ -6,6 +6,7 @@ The security system is configured in app/config/security.yml.
 
 - in app/config/security.yml
 
+<pre>
 security:
         #------
         firewalls:
@@ -15,12 +16,14 @@ security:
         access_control:
             #--------------
             - { path: ^/, roles: ROLE_USER }    <h5>#-> to access you must be registred as ROLE_USER</h5>
+</pre>
 
 <h2>2)To be a user, a visitor must have an account. To this he must have to created one of it
 The security must let to pass this form.</h2>
 
 - in app/config/security.yml
 
+<pre>
 security:
         #------
         firewalls:
@@ -32,12 +35,14 @@ security:
             - { path: ^/users, roles: IS_AUTHENTICATED_ANONYMOUSLY } <h5>#-> Everyone can access to this page '/users'</h5>
             <h5>#-> so '/users/create' works too and a visitor can create an account</h5>
             #--------------------------------
+</pre>
 
 <h2>3) To pass from anonymous to user role you must be authenticated by a form login managed by AppBundle/Controller/SecurityController:loginAction.
 The security must call and let to pass this form.</h2>
 
 - in app/config/security.yml
 
+<pre>
 security:
         #------
         firewalls:
@@ -52,14 +57,15 @@ security:
                 logout: ~
 
         access_control:
-        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY } #-> <h5>Everyone can access to this form login page</h5>
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }  <h5>#-> Everyone can access to this form login page</h5>
         #----------------------------------
-
+</pre>
 
 <h2>4) Only users with ROLE_ADMIN can to edit the users</h2>
 
 - in src/AppBundle/Controller/UserController.php
 
+<pre>
 class UserController extends Controller
 {
     #----------------------
@@ -69,9 +75,11 @@ class UserController extends Controller
      */
     public function editAction(User $user, Request $request)
     #--------------------------------
+</pre>
 
 - in app/Resources/user/list.html.twig
 
+<pre>
 #--------------------------------
 {% if is_granted('ROLE_ADMIN') %}
     <th>Actions</th>    <h5>#-> The action column don't display its if the user is not an admin</h5>
@@ -83,14 +91,16 @@ class UserController extends Controller
     </td>
 {% endif %}
 #---------------------------------
-
+</pre>
 
 <h2>5) The users are loaded from the database through the user entity:</h2>
 
 - in app/config/security.yml
 
+<pre>
 providers:
     doctrine:
         entity:
-            class: AppBundle:User  <h5>#-> User entity</h5>
+            class: AppBundle:User   #-> <h5>#-> User entity</h5>
             property: username 
+</pre>
