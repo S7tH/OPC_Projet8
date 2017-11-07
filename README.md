@@ -28,6 +28,8 @@ To contribute to this project, please respect the following steps:
 
 2) create a new branch ( /!\ don't use the master and dev branch, if not your aske to a pull request will be ignored)
 
+3) create your features and your Phpunit tests
+
 3) commit your features
 
 4) Open an issue or a pull request to suggest changes or additions check up if your suggest don't already exist in our issues.
