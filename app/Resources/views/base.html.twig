@@ -25,6 +25,7 @@
     </head>
 
     <body>
+
         <nav class="navbar navbar-light navbar-fixed-top" style="background-color: #e3f2fd;" role="navigation">
             <div class="container">
                 <div class="navbar-header">
@@ -37,6 +38,7 @@
 
         <!-- Page Content -->
         <div class="container">
+        {% block menu %}
             <div class="row">
                 <a href="{{ path('user_create') }}" class="btn btn-primary">Créer un utilisateur</a>
 
@@ -53,7 +55,8 @@
                 <a href="{{ path('login') }}" class="btn btn-success">Se connecter</a>
                 {% endif %}
             </div>
-
+        {% endblock %}
+        
             <div class="row">
                 <div class="col-md-12">
                     {% for flash_message in app.session.flashBag.get('success') %}
@@ -73,7 +76,6 @@
                             <strong>Oops !</strong> {{ flash_message }}
                         </div>
                     {% endfor %}
-
                     {% block header_title %}{% endblock %}
                     {% block header_img %}<img class="slide-image" src="{{ asset('img/todolist_homepage.jpg') }}" alt="todo list">{% endblock %}
                 </div>
