@@ -20,7 +20,7 @@ class TaskController extends Controller
         $overtasks = $request->query->get('overtasks');
         $repository = $this->getDoctrine()->getManager()->getRepository('AppBundle:Task');
 
-        $tasks = ($overtasks != null) ? $repository->findByIsDone($overtasks) : $tasks = $repository->findAll();
+        $tasks = ($overtasks !== null) ? $repository->findByIsDone($overtasks) : $tasks = $repository->findAll();
         
         return $this->render('task/list.html.twig', array(
                                 'tasks' => $tasks
