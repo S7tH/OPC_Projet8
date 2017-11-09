@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
+
 class TaskController extends Controller
 {
     /**
@@ -17,14 +18,12 @@ class TaskController extends Controller
     {
         //this request allow us to put a condition to displaying only the tasks which are over. 
         $overtasks = $request->query->get('overtasks');
+        $repository = $this->getDoctrine()->getManager()->getRepository('AppBundle:Task');
 
-        //this request allow us to put a condition to displaying only the tasks which are to do. 
-        $todotasks = $request->query->get('todotasks');
+        $tasks = ($overtasks != null) ? $repository->findByIsDone($overtasks) : $tasks = $repository->findAll();
         
         return $this->render('task/list.html.twig', array(
-                                'tasks' => $this->getDoctrine()->getRepository('AppBundle:Task')->findAll(),
-                                'overtasks' => $overtasks,
-                                'todotasks' => $todotasks
+                                'tasks' => $tasks
                             ));
     }
 

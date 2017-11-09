@@ -7,28 +7,17 @@
 {% endblock %}
 {% block linktasks %}{% endblock %}
 
-
 {% block body %}
-    <a href="{{ path('task_create') }}" class="btn btn-info pull-right">Créer une tâche</a>
-    <div class="row">
-    {% if tasks is not empty %}
-        {% for task in tasks %}
-            {% if overtasks is not null %}
-                {% if task.isDone %}
-                    {{ include('task/listcontent.html.twig') }}
-                {% endif %}
-            {% elseif todotasks is not null %}
-                {% if task.isDone == false %}
-                    {{ include('task/listcontent.html.twig') }}
-                {% endif %}
-            {% else %}
-                {{ include('task/listcontent.html.twig') }} 
-            {% endif %}
-        {% endfor %}
-    {% else %}
-        <div class="alert alert-warning" role="alert">
-            Il n'y a pas encore de tâche enregistrée. <a href="{{ path('task_create') }}" class="btn btn-warning pull-right">Créer une tâche</a>
-        </div>
-    {% endif %}
+<a href="{{ path('task_create') }}" class="btn btn-info pull-right">Créer une tâche</a>
+<div class="row">
+{% if tasks is not empty %}
+    {% for task in tasks %}
+        {{ include('task/listcontent.html.twig') }} 
+    {% endfor %}
+{% else %}
+    <div class="alert alert-warning" role="alert">
+        Il n'y a pas encore de tâche enregistrée. <a href="{{ path('task_create') }}" class="btn btn-warning pull-right">Créer une tâche</a>
     </div>
+{% endif %}
+</div>
 {% endblock %}
