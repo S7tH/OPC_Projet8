@@ -43,16 +43,18 @@
                 <a href="{{ path('user_create') }}" class="btn btn-primary">Créer un utilisateur</a>
 
                 {% if app.user %}
-                <a href="{{ path('homepage') }}" class="btn btn-primary">Accueil</a>
-
-                <a href="{{ path('task_list') }}" class="btn btn-primary">Voir la liste des tâches</a>
-                <a href="{{ path('user_list') }}" class="btn btn-primary">Voir la liste des utilisateurs</a>
-
-                <a href="{{ path('logout') }}" class="pull-right btn btn-danger">Se déconnecter</a>
+                    {% block link %}{% endblock %}
+                    {% block linkuser %}
+                        <a href="{{ path('user_list') }}" class="btn btn-primary">Voir la liste des utilisateurs</a>
+                    {% endblock %}
+                    {% block linktasks %}
+                        <a href="{{ path('task_list') }}" class="btn btn-primary">Voir l'ensemble des tâches</a>
+                    {% endblock %}
+                    <a href="{{ path('logout') }}" class="pull-right btn btn-danger">Se déconnecter</a>
                 {% endif %}
 
                 {% if not app.user and 'login' != app.request.attributes.get('_route') %}
-                <a href="{{ path('login') }}" class="btn btn-success">Se connecter</a>
+                    <a href="{{ path('login') }}" class="btn btn-success">Se connecter</a>
                 {% endif %}
             </div>
         {% endblock %}
