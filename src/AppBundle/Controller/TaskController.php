@@ -18,9 +18,13 @@ class TaskController extends Controller
         //this request allow us to put a condition to displaying only the tasks which are over. 
         $overtasks = $request->query->get('overtasks');
 
+        //this request allow us to put a condition to displaying only the tasks which are to do. 
+        $todotasks = $request->query->get('todotasks');
+        
         return $this->render('task/list.html.twig', array(
                                 'tasks' => $this->getDoctrine()->getRepository('AppBundle:Task')->findAll(),
-                                'overtasks' => $overtasks
+                                'overtasks' => $overtasks,
+                                'todotasks' => $todotasks
                             ));
     }
 
@@ -32,7 +36,7 @@ class TaskController extends Controller
         $task = new Task();
         $user = $this->getUser();
 
-        //if user don't exist author will be null then anonymous
+        //if user session don't exist author will be null then anonymous
         if($user)
         {
             $task->setAuthor($user);
