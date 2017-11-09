@@ -15,9 +15,27 @@ class UserController extends Controller
     /**
      * @Route("/users", name="user_list")
      */
-    public function listAction()
+    public function listAction(Request $request)
     {
-        return $this->render('user/list.html.twig', ['users' => $this->getDoctrine()->getRepository('AppBundle:User')->findAll()]);
+        //recover the repository
+        $users = $this->getDoctrine()
+        ->getManager()
+        ->getRepository('AppBundle:User')
+        ->findAll()
+        ;
+
+        //recover the paginator service
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $users,
+            $request->query->getInt('page', 1)/*page number*/,
+            10/*limit per page*/
+        );
+
+        return $this->render('user/list.html.twig', array(
+            'users' => $users,
+            'pagination' => $pagination
+        ));
     }
 
     /**
