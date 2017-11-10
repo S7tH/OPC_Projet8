@@ -1,0 +1,844 @@
+PHPUnit 6.4.4 by Sebastian Bergmann and contributors.
+
+.                                                                   1 / 1 (100%)<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>To Do List app</title>
+
+        <!-- Bootstrap Core CSS -->
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="/css/shop-homepage.css" rel="stylesheet">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <nav class="navbar navbar-light navbar-fixed-top" style="background-color: #e3f2fd;" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">To Do List app</a>
+
+                    <img src="/img/Logo_OpenClassrooms.png" alt="OpenClassrooms" />
+                </div>
+            </div>
+        </nav>
+
+        <!-- Page Content -->
+        <div class="container">
+                    <div class="row">
+                <a href="/users/create" class="btn btn-primary">Créer un utilisateur</a>
+
+                
+                                    <a href="/login" class="btn btn-success">Se connecter</a>
+                            </div>
+                
+            <div class="row">
+                <div class="col-md-12">
+                    
+                                        <div class="alert alert-danger" role="alert">
+                        <strong>Action non authorisée !</strong> Vous devez être soit l&#039;autheur de cette tâche soit administrateur pour pouvoir l&#039;editer.
+                    </div>
+                    
+                                                            <img class="slide-image" src="/img/todolist_content.jpg" alt="todo list">                </div>
+            </div>
+
+            <br />
+
+            <div class="row">
+                <div class="col-md-12">
+                    <a href="/tasks/create" class="btn btn-info pull-right">Créer une tâche</a>
+<div class="row">
+            <div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <h4 class="pull-right">
+                <span class="glyphicon glyphicon-remove"></span>                                    <h6>Tâche créée par un utilisateur anonyme</h6>
+                            </h4>
+            <h4><a href="/tasks/4/edit">test title</a></h4>
+            <p>test content</p>
+        </div>
+           
+        <div>
+                            <form action="/tasks/4/toggle">
+                    <button class="btn btn-success btn-sm pull-right">
+                        Marquer comme faite                    </button>
+                </form>
+             
+                <form action="/tasks/4/delete">
+                    <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
+                </form>
+                    </div>
+    </div>
+</div>
+ 
+            <div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <h4 class="pull-right">
+                <span class="glyphicon glyphicon-remove"></span>                                    <h6>Tâche créée par un utilisateur anonyme</h6>
+                            </h4>
+            <h4><a href="/tasks/6/edit">test title</a></h4>
+            <p>test content</p>
+        </div>
+           
+        <div>
+                            <form action="/tasks/6/toggle">
+                    <button class="btn btn-success btn-sm pull-right">
+                        Marquer comme faite                    </button>
+                </form>
+             
+                <form action="/tasks/6/delete">
+                    <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
+                </form>
+                    </div>
+    </div>
+</div>
+ 
+            <div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <h4 class="pull-right">
+                <span class="glyphicon glyphicon-remove"></span>                                    <h6>Tâche créée par user10803</h6>
+                            </h4>
+            <h4><a href="/tasks/7/edit">test title</a></h4>
+            <p>test content</p>
+        </div>
+           
+        <div>
+                    </div>
+    </div>
+</div>
+ 
+            <div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <h4 class="pull-right">
+                <span class="glyphicon glyphicon-remove"></span>                                    <h6>Tâche créée par un utilisateur anonyme</h6>
+                            </h4>
+            <h4><a href="/tasks/8/edit">test title</a></h4>
+            <p>test content</p>
+        </div>
+           
+        <div>
+                            <form action="/tasks/8/toggle">
+                    <button class="btn btn-success btn-sm pull-right">
+                        Marquer comme faite                    </button>
+                </form>
+             
+                <form action="/tasks/8/delete">
+                    <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
+                </form>
+                    </div>
+    </div>
+</div>
+ 
+            <div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <h4 class="pull-right">
+                <span class="glyphicon glyphicon-remove"></span>                                    <h6>Tâche créée par un utilisateur anonyme</h6>
+                            </h4>
+            <h4><a href="/tasks/9/edit">test title edit</a></h4>
+            <p>test content</p>
+        </div>
+           
+        <div>
+                            <form action="/tasks/9/toggle">
+                    <button class="btn btn-success btn-sm pull-right">
+                        Marquer comme faite                    </button>
+                </form>
+             
+                <form action="/tasks/9/delete">
+                    <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
+                </form>
+                    </div>
+    </div>
+</div>
+ 
+            <div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <h4 class="pull-right">
+                <span class="glyphicon glyphicon-remove"></span>                                    <h6>Tâche créée par un utilisateur anonyme</h6>
+                            </h4>
+            <h4><a href="/tasks/10/edit">test title</a></h4>
+            <p>test content</p>
+        </div>
+           
+        <div>
+                            <form action="/tasks/10/toggle">
+                    <button class="btn btn-success btn-sm pull-right">
+                        Marquer comme faite                    </button>
+                </form>
+             
+                <form action="/tasks/10/delete">
+                    <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
+                </form>
+                    </div>
+    </div>
+</div>
+ 
+            <div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <h4 class="pull-right">
+                <span class="glyphicon glyphicon-remove"></span>                                    <h6>Tâche créée par un utilisateur anonyme</h6>
+                            </h4>
+            <h4><a href="/tasks/11/edit">test title</a></h4>
+            <p>test content</p>
+        </div>
+           
+        <div>
+                            <form action="/tasks/11/toggle">
+                    <button class="btn btn-success btn-sm pull-right">
+                        Marquer comme faite                    </button>
+                </form>
+             
+                <form action="/tasks/11/delete">
+                    <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
+                </form>
+                    </div>
+    </div>
+</div>
+ 
+            <div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <h4 class="pull-right">
+                <span class="glyphicon glyphicon-remove"></span>                                    <h6>Tâche créée par un utilisateur anonyme</h6>
+                            </h4>
+            <h4><a href="/tasks/12/edit">test title</a></h4>
+            <p>test content</p>
+        </div>
+           
+        <div>
+                            <form action="/tasks/12/toggle">
+                    <button class="btn btn-success btn-sm pull-right">
+                        Marquer comme faite                    </button>
+                </form>
+             
+                <form action="/tasks/12/delete">
+                    <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
+                </form>
+                    </div>
+    </div>
+</div>
+ 
+            <div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <h4 class="pull-right">
+                <span class="glyphicon glyphicon-remove"></span>                                    <h6>Tâche créée par un utilisateur anonyme</h6>
+                            </h4>
+            <h4><a href="/tasks/13/edit">test title</a></h4>
+            <p>test content</p>
+        </div>
+           
+        <div>
+                            <form action="/tasks/13/toggle">
+                    <button class="btn btn-success btn-sm pull-right">
+                        Marquer comme faite                    </button>
+                </form>
+             
+                <form action="/tasks/13/delete">
+                    <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
+                </form>
+                    </div>
+    </div>
+</div>
+ 
+            <div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <h4 class="pull-right">
+                <span class="glyphicon glyphicon-remove"></span>                                    <h6>Tâche créée par un utilisateur anonyme</h6>
+                            </h4>
+            <h4><a href="/tasks/14/edit">test title</a></h4>
+            <p>test content</p>
+        </div>
+           
+        <div>
+                            <form action="/tasks/14/toggle">
+                    <button class="btn btn-success btn-sm pull-right">
+                        Marquer comme faite                    </button>
+                </form>
+             
+                <form action="/tasks/14/delete">
+                    <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
+                </form>
+                    </div>
+    </div>
+</div>
+ 
+            <div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <h4 class="pull-right">
+                <span class="glyphicon glyphicon-remove"></span>                                    <h6>Tâche créée par un utilisateur anonyme</h6>
+                            </h4>
+            <h4><a href="/tasks/15/edit">test title</a></h4>
+            <p>test content</p>
+        </div>
+           
+        <div>
+                            <form action="/tasks/15/toggle">
+                    <button class="btn btn-success btn-sm pull-right">
+                        Marquer comme faite                    </button>
+                </form>
+             
+                <form action="/tasks/15/delete">
+                    <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
+                </form>
+                    </div>
+    </div>
+</div>
+ 
+            <div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <h4 class="pull-right">
+                <span class="glyphicon glyphicon-remove"></span>                                    <h6>Tâche créée par un utilisateur anonyme</h6>
+                            </h4>
+            <h4><a href="/tasks/16/edit">test title</a></h4>
+            <p>test content</p>
+        </div>
+           
+        <div>
+                            <form action="/tasks/16/toggle">
+                    <button class="btn btn-success btn-sm pull-right">
+                        Marquer comme faite                    </button>
+                </form>
+             
+                <form action="/tasks/16/delete">
+                    <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
+                </form>
+                    </div>
+    </div>
+</div>
+ 
+            <div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <h4 class="pull-right">
+                <span class="glyphicon glyphicon-remove"></span>                                    <h6>Tâche créée par un utilisateur anonyme</h6>
+                            </h4>
+            <h4><a href="/tasks/17/edit">test title</a></h4>
+            <p>test content</p>
+        </div>
+           
+        <div>
+                            <form action="/tasks/17/toggle">
+                    <button class="btn btn-success btn-sm pull-right">
+                        Marquer comme faite                    </button>
+                </form>
+             
+                <form action="/tasks/17/delete">
+                    <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
+                </form>
+                    </div>
+    </div>
+</div>
+ 
+            <div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <h4 class="pull-right">
+                <span class="glyphicon glyphicon-remove"></span>                                    <h6>Tâche créée par un utilisateur anonyme</h6>
+                            </h4>
+            <h4><a href="/tasks/18/edit">test title</a></h4>
+            <p>test content</p>
+        </div>
+           
+        <div>
+                            <form action="/tasks/18/toggle">
+                    <button class="btn btn-success btn-sm pull-right">
+                        Marquer comme faite                    </button>
+                </form>
+             
+                <form action="/tasks/18/delete">
+                    <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
+                </form>
+                    </div>
+    </div>
+</div>
+ 
+            <div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <h4 class="pull-right">
+                <span class="glyphicon glyphicon-remove"></span>                                    <h6>Tâche créée par un utilisateur anonyme</h6>
+                            </h4>
+            <h4><a href="/tasks/19/edit">test title</a></h4>
+            <p>test content</p>
+        </div>
+           
+        <div>
+                            <form action="/tasks/19/toggle">
+                    <button class="btn btn-success btn-sm pull-right">
+                        Marquer comme faite                    </button>
+                </form>
+             
+                <form action="/tasks/19/delete">
+                    <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
+                </form>
+                    </div>
+    </div>
+</div>
+ 
+            <div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <h4 class="pull-right">
+                <span class="glyphicon glyphicon-remove"></span>                                    <h6>Tâche créée par un utilisateur anonyme</h6>
+                            </h4>
+            <h4><a href="/tasks/20/edit">test title</a></h4>
+            <p>test content</p>
+        </div>
+           
+        <div>
+                            <form action="/tasks/20/toggle">
+                    <button class="btn btn-success btn-sm pull-right">
+                        Marquer comme faite                    </button>
+                </form>
+             
+                <form action="/tasks/20/delete">
+                    <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
+                </form>
+                    </div>
+    </div>
+</div>
+ 
+            <div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <h4 class="pull-right">
+                <span class="glyphicon glyphicon-remove"></span>                                    <h6>Tâche créée par un utilisateur anonyme</h6>
+                            </h4>
+            <h4><a href="/tasks/21/edit">test title</a></h4>
+            <p>test content</p>
+        </div>
+           
+        <div>
+                            <form action="/tasks/21/toggle">
+                    <button class="btn btn-success btn-sm pull-right">
+                        Marquer comme faite                    </button>
+                </form>
+             
+                <form action="/tasks/21/delete">
+                    <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
+                </form>
+                    </div>
+    </div>
+</div>
+ 
+            <div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <h4 class="pull-right">
+                <span class="glyphicon glyphicon-remove"></span>                                    <h6>Tâche créée par un utilisateur anonyme</h6>
+                            </h4>
+            <h4><a href="/tasks/22/edit">test title</a></h4>
+            <p>test content</p>
+        </div>
+           
+        <div>
+                            <form action="/tasks/22/toggle">
+                    <button class="btn btn-success btn-sm pull-right">
+                        Marquer comme faite                    </button>
+                </form>
+             
+                <form action="/tasks/22/delete">
+                    <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
+                </form>
+                    </div>
+    </div>
+</div>
+ 
+            <div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <h4 class="pull-right">
+                <span class="glyphicon glyphicon-remove"></span>                                    <h6>Tâche créée par un utilisateur anonyme</h6>
+                            </h4>
+            <h4><a href="/tasks/23/edit">test title</a></h4>
+            <p>test content</p>
+        </div>
+           
+        <div>
+                            <form action="/tasks/23/toggle">
+                    <button class="btn btn-success btn-sm pull-right">
+                        Marquer comme faite                    </button>
+                </form>
+             
+                <form action="/tasks/23/delete">
+                    <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
+                </form>
+                    </div>
+    </div>
+</div>
+ 
+            <div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <h4 class="pull-right">
+                <span class="glyphicon glyphicon-remove"></span>                                    <h6>Tâche créée par un utilisateur anonyme</h6>
+                            </h4>
+            <h4><a href="/tasks/24/edit">test title</a></h4>
+            <p>test content</p>
+        </div>
+           
+        <div>
+                            <form action="/tasks/24/toggle">
+                    <button class="btn btn-success btn-sm pull-right">
+                        Marquer comme faite                    </button>
+                </form>
+             
+                <form action="/tasks/24/delete">
+                    <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
+                </form>
+                    </div>
+    </div>
+</div>
+ 
+            <div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <h4 class="pull-right">
+                <span class="glyphicon glyphicon-remove"></span>                                    <h6>Tâche créée par un utilisateur anonyme</h6>
+                            </h4>
+            <h4><a href="/tasks/25/edit">test title</a></h4>
+            <p>test content</p>
+        </div>
+           
+        <div>
+                            <form action="/tasks/25/toggle">
+                    <button class="btn btn-success btn-sm pull-right">
+                        Marquer comme faite                    </button>
+                </form>
+             
+                <form action="/tasks/25/delete">
+                    <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
+                </form>
+                    </div>
+    </div>
+</div>
+ 
+            <div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <h4 class="pull-right">
+                <span class="glyphicon glyphicon-remove"></span>                                    <h6>Tâche créée par un utilisateur anonyme</h6>
+                            </h4>
+            <h4><a href="/tasks/26/edit">test title</a></h4>
+            <p>test content</p>
+        </div>
+           
+        <div>
+                            <form action="/tasks/26/toggle">
+                    <button class="btn btn-success btn-sm pull-right">
+                        Marquer comme faite                    </button>
+                </form>
+             
+                <form action="/tasks/26/delete">
+                    <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
+                </form>
+                    </div>
+    </div>
+</div>
+ 
+            <div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <h4 class="pull-right">
+                <span class="glyphicon glyphicon-remove"></span>                                    <h6>Tâche créée par un utilisateur anonyme</h6>
+                            </h4>
+            <h4><a href="/tasks/27/edit">test title</a></h4>
+            <p>test content</p>
+        </div>
+           
+        <div>
+                            <form action="/tasks/27/toggle">
+                    <button class="btn btn-success btn-sm pull-right">
+                        Marquer comme faite                    </button>
+                </form>
+             
+                <form action="/tasks/27/delete">
+                    <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
+                </form>
+                    </div>
+    </div>
+</div>
+ 
+            <div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <h4 class="pull-right">
+                <span class="glyphicon glyphicon-remove"></span>                                    <h6>Tâche créée par un utilisateur anonyme</h6>
+                            </h4>
+            <h4><a href="/tasks/28/edit">test title</a></h4>
+            <p>test content</p>
+        </div>
+           
+        <div>
+                            <form action="/tasks/28/toggle">
+                    <button class="btn btn-success btn-sm pull-right">
+                        Marquer comme faite                    </button>
+                </form>
+             
+                <form action="/tasks/28/delete">
+                    <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
+                </form>
+                    </div>
+    </div>
+</div>
+ 
+            <div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <h4 class="pull-right">
+                <span class="glyphicon glyphicon-remove"></span>                                    <h6>Tâche créée par un utilisateur anonyme</h6>
+                            </h4>
+            <h4><a href="/tasks/29/edit">test title</a></h4>
+            <p>test content</p>
+        </div>
+           
+        <div>
+                            <form action="/tasks/29/toggle">
+                    <button class="btn btn-success btn-sm pull-right">
+                        Marquer comme faite                    </button>
+                </form>
+             
+                <form action="/tasks/29/delete">
+                    <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
+                </form>
+                    </div>
+    </div>
+</div>
+ 
+            <div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <h4 class="pull-right">
+                <span class="glyphicon glyphicon-remove"></span>                                    <h6>Tâche créée par un utilisateur anonyme</h6>
+                            </h4>
+            <h4><a href="/tasks/30/edit">test title</a></h4>
+            <p>test content</p>
+        </div>
+           
+        <div>
+                            <form action="/tasks/30/toggle">
+                    <button class="btn btn-success btn-sm pull-right">
+                        Marquer comme faite                    </button>
+                </form>
+             
+                <form action="/tasks/30/delete">
+                    <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
+                </form>
+                    </div>
+    </div>
+</div>
+ 
+            <div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <h4 class="pull-right">
+                <span class="glyphicon glyphicon-remove"></span>                                    <h6>Tâche créée par un utilisateur anonyme</h6>
+                            </h4>
+            <h4><a href="/tasks/31/edit">test title</a></h4>
+            <p>test content</p>
+        </div>
+           
+        <div>
+                            <form action="/tasks/31/toggle">
+                    <button class="btn btn-success btn-sm pull-right">
+                        Marquer comme faite                    </button>
+                </form>
+             
+                <form action="/tasks/31/delete">
+                    <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
+                </form>
+                    </div>
+    </div>
+</div>
+ 
+            <div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <h4 class="pull-right">
+                <span class="glyphicon glyphicon-remove"></span>                                    <h6>Tâche créée par un utilisateur anonyme</h6>
+                            </h4>
+            <h4><a href="/tasks/32/edit">test title</a></h4>
+            <p>test content</p>
+        </div>
+           
+        <div>
+                            <form action="/tasks/32/toggle">
+                    <button class="btn btn-success btn-sm pull-right">
+                        Marquer comme faite                    </button>
+                </form>
+             
+                <form action="/tasks/32/delete">
+                    <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
+                </form>
+                    </div>
+    </div>
+</div>
+ 
+            <div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <h4 class="pull-right">
+                <span class="glyphicon glyphicon-remove"></span>                                    <h6>Tâche créée par un utilisateur anonyme</h6>
+                            </h4>
+            <h4><a href="/tasks/33/edit">test title</a></h4>
+            <p>test content</p>
+        </div>
+           
+        <div>
+                            <form action="/tasks/33/toggle">
+                    <button class="btn btn-success btn-sm pull-right">
+                        Marquer comme faite                    </button>
+                </form>
+             
+                <form action="/tasks/33/delete">
+                    <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
+                </form>
+                    </div>
+    </div>
+</div>
+ 
+            <div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <h4 class="pull-right">
+                <span class="glyphicon glyphicon-remove"></span>                                    <h6>Tâche créée par un utilisateur anonyme</h6>
+                            </h4>
+            <h4><a href="/tasks/34/edit">test title</a></h4>
+            <p>test content</p>
+        </div>
+           
+        <div>
+                            <form action="/tasks/34/toggle">
+                    <button class="btn btn-success btn-sm pull-right">
+                        Marquer comme faite                    </button>
+                </form>
+             
+                <form action="/tasks/34/delete">
+                    <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
+                </form>
+                    </div>
+    </div>
+</div>
+ 
+            <div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <h4 class="pull-right">
+                <span class="glyphicon glyphicon-remove"></span>                                    <h6>Tâche créée par un utilisateur anonyme</h6>
+                            </h4>
+            <h4><a href="/tasks/35/edit">test title</a></h4>
+            <p>test content</p>
+        </div>
+           
+        <div>
+                            <form action="/tasks/35/toggle">
+                    <button class="btn btn-success btn-sm pull-right">
+                        Marquer comme faite                    </button>
+                </form>
+             
+                <form action="/tasks/35/delete">
+                    <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
+                </form>
+                    </div>
+    </div>
+</div>
+ 
+            <div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <h4 class="pull-right">
+                <span class="glyphicon glyphicon-remove"></span>                                    <h6>Tâche créée par un utilisateur anonyme</h6>
+                            </h4>
+            <h4><a href="/tasks/36/edit">test title</a></h4>
+            <p>test content</p>
+        </div>
+           
+        <div>
+                            <form action="/tasks/36/toggle">
+                    <button class="btn btn-success btn-sm pull-right">
+                        Marquer comme faite                    </button>
+                </form>
+             
+                <form action="/tasks/36/delete">
+                    <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
+                </form>
+                    </div>
+    </div>
+</div>
+ 
+            <div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail">
+        <div class="caption">
+            <h4 class="pull-right">
+                <span class="glyphicon glyphicon-remove"></span>                                    <h6>Tâche créée par un utilisateur anonyme</h6>
+                            </h4>
+            <h4><a href="/tasks/37/edit">test title</a></h4>
+            <p>test content</p>
+        </div>
+           
+        <div>
+                            <form action="/tasks/37/toggle">
+                    <button class="btn btn-success btn-sm pull-right">
+                        Marquer comme faite                    </button>
+                </form>
+             
+                <form action="/tasks/37/delete">
+                    <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
+                </form>
+                    </div>
+    </div>
+</div>
+ 
+    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+
+        <div class="container">
+
+            <hr>
+            <footer>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p class="pull-right">Copyright &copy; OpenClassrooms</p>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+
+        <script src="/js/jquery.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+    </body>
+</html>
+
+
+Time: 399 ms, Memory: 20.00MB
+
+[30;42mOK (1 test, 2 assertions)[0m

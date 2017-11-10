@@ -29,7 +29,7 @@ abstract class AbstractControllerTest extends WebTestCase
         $token = new UsernamePasswordToken('user', null, $firewallContext, array($role));
         $session->set('_security_'.$firewallContext, serialize($token));
         $session->save();
-        
+
         $cookie = new Cookie($session->getName(), $session->getId());
         $this->client->getCookieJar()->set($cookie);
     }
