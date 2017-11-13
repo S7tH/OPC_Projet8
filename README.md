@@ -29,7 +29,7 @@ After copied (clone or download) this repository github on your computer
     4.put assets in rights folders by using (in prompt)
     - php bin/console assets/install
 
-<h2><a href="/Documentation/Authentication.md">II/How the Authentication works</a></h2>
+<h2><a href="/Documentation/Authentication.doc">II/How the Authentication works</a></h2>
 
 
 <H2>III/How to contribute to that project</H2>
