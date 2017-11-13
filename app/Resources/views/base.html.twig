@@ -40,7 +40,9 @@
         <div class="container">
         {% block menu %}
             <div class="row">
-                <a href="{{ path('user_create') }}" class="btn btn-primary">Créer un utilisateur</a>
+                {% block createuser %}
+                    <a href="{{ path('user_create') }}" class="btn btn-primary">Créer un utilisateur</a>
+                {% endblock %}
 
                 {% if app.user %}
                     {% block link %}{% endblock %}
