@@ -18,10 +18,10 @@ class TaskController extends Controller
     {
         //this request allow us to put a condition to displaying only the tasks which are over. 
         $overtasks = $request->query->get('overtasks');
-        $repository = $this->getDoctrine()->getManager()->getRepository('AppBundle:Task');
+        $repository = $this->getDoctrine()->getRepository('AppBundle:Task');
 
-        $tasks = ($overtasks !== null) ? $repository->findByIsDone($overtasks) : $tasks = $repository->findAll();
-        
+        $tasks = ($overtasks !== null) ? $repository->findByIsTaskDone($overtasks) : $tasks = $repository->findAllTasks();
+
         return $this->render('task/list.html.twig', array(
                                 'tasks' => $tasks
                             ));
