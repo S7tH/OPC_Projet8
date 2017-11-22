@@ -30,7 +30,9 @@ After copied (clone or download) this repository github on your computer
     - php bin/console assets/install
 
 <h2><a href="/Documentation/Authentication.md">II/How the Authentication works</a></h2>
-
+<br/>
+(For more readability go to the Documentation folder and open the file Authentication.docx)
 
 <h2><a href="/Documentation/Contribute.md">III/How to contribute to the project</a></h2>
-
+<br/>
+(For more readability go to the Documentation folder and open the file Contribute.docx)
