@@ -12,7 +12,7 @@ class TaskRepository extends EntityRepository
         return $this
         ->createQueryBuilder('a')
         ->getQuery()
-        ->useResultCache(true, 3600, 'id')
+        ->useResultCache(true, 1, 'id')
         ->getResult()
       ;
     }
@@ -24,7 +24,7 @@ class TaskRepository extends EntityRepository
         ->where('a.isDone = :state')
             ->setParameter('state', $state)
         ->getQuery()
-        ->useResultCache(true, 3600, 'id')
+        ->useResultCache(true, 1, 'id')
         ->getResult()
       ;
     }
