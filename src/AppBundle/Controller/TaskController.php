@@ -123,7 +123,6 @@ class TaskController extends Controller
 
     /**
      * @Route("/tasks/{id}/delete", name="task_delete")
-     * @Method({"GET"})
      */
     public function deleteTaskAction(Task $task)
     {

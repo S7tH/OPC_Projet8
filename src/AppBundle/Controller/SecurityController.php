@@ -27,20 +27,4 @@ class SecurityController extends Controller
         $response->setSharedMaxAge(3600)->headers->addCacheControlDirective('must-revalidate', true);
         return $response;
     }
-
-    /**
-     * @Route("/login_check", name="login_check")
-     */
-    public function loginCheckAction()
-    {
-        // This code is never executed.
-    }
-
-    /**
-     * @Route("/logout", name="logout")
-     */
-    public function logoutCheckAction()
-    {
-        // This code is never executed.
-    }
 }
