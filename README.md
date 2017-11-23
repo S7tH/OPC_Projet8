@@ -5,7 +5,7 @@ Base du projet #8 : Améliorez un projet existant
 
 https://openclassrooms.com/projects/ameliorer-un-projet-existant-1
 
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/5ab69084-3666-4699-be95-b5975e5e18b2/big.png)](https://insight.sensiolabs.com/projects/5ab69084-3666-4699-be95-b5975e5e18b2)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/c1ce60cb-19c6-403e-bd82-145ed9b65a80/big.png)](https://insight.sensiolabs.com/projects/c1ce60cb-19c6-403e-bd82-145ed9b65a80)
 
 
 How to use it :
