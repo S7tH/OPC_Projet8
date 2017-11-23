@@ -23,6 +23,25 @@ class TaskControllerTest extends AbstractControllerTest
         //echo $this->client->getResponse()->getContent();
     }
 
+    public function testTaskListWithRequestIsUp()
+    {
+        //user is authenticated
+        $this->logUser();
+
+        /*call the request method with 2 parameters
+        1/ the http method 2/ the uri what we want to recover*/
+        $this->client->request('GET', '/tasks?overtasks=1');
+
+        //recover the response with status code
+        $response = $this->client->getResponse()->getStatusCode();
+
+        //The test with the code status expected
+        $this->assertSame(200,$response);
+
+        //To display the html code remove the double slash ahead the following line
+        //echo $this->client->getResponse()->getContent();
+    }
+
     public function testTaskCreatepageIsUp()
     {
         //user is authenticated
@@ -148,6 +167,44 @@ class TaskControllerTest extends AbstractControllerTest
         
             //To display the html code remove the double slash ahead the following line
             //echo $this->client->getResponse()->getContent();
+        }
+    }
+
+    public function testTaskEditpageNoAllow()
+    {
+        //user is authenticated as admin
+        $this->logAdmin();
+
+        /*recover the crawler in calling the request method with 2 parameters
+        1/ the http method 2/ the uri what we want to recover*/
+        $crawler = $this->client->request('GET', '/tasks/7/edit');
+
+        //recover the response with status code
+        $response = $this->client->getResponse()->getStatusCode();
+
+        //if task asked doesn't exist
+        if($this->client->getResponse()->isNotFound())
+        {
+            //The test with the code status expected
+            $this->assertSame(404,$response);
+        }
+        else
+        {
+            //to can be able to watch the result
+            $crawler = $this->client->followRedirect();
+
+            //recover the response with status code
+            $response = $this->client->getResponse()->getStatusCode();
+
+            //The test with the code status expected
+            $this->assertSame(200,$response);
+
+            /*The test with the number of time that the element dom should be apear in first parameter
+            , the dom element in second parameter*/
+            $this->assertSame(1,$crawler->filter('div.alert.alert-danger')->count());
+        
+            //To display the html code remove the double slash ahead the following line
+            echo $this->client->getResponse()->getContent();
         }
     }
 

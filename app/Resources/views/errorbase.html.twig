@@ -1,0 +1,24 @@
+{% extends "::base.html.twig" %}
+
+
+    {% block meta %}
+        <meta charset="{{ _charset }}" />
+    {% endblock %}
+    {% block title %}
+        Une erreur est survenue: {{ status_text }}</title>
+    {% endblock %}
+
+    {% block menu %} {% endblock %}
+    {% block body %}
+    <br/>
+    <div class="container">
+            <h1>Oups! Une erreur est survenue</h1>
+            <br/>
+                <hr>
+                    <h2>Le serveur retourne une erreur "{{ status_code }} {{ status_text }}".</h2>
+                <hr>
+                {% block status %}{% endblock %}
+                <a href="{{ path('homepage') }}" class="btn btn-primary btn-xl">Retourner à l'accueil</a>
+        </div>
+    </div>
+    {% endblock %}

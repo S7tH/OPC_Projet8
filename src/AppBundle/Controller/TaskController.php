@@ -3,36 +3,46 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Task;
-use AppBundle\Form\TaskType;
+use AppBundle\Form\Type\TaskType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+
 
 class TaskController extends Controller
 {
     /**
      * @Route("/tasks", name="task_list")
+     * @Method({"GET"})
      */
     public function listAction(Request $request)
     {
         //this request allow us to put a condition to displaying only the tasks which are over. 
         $overtasks = $request->query->get('overtasks');
+        $repository = $this->getDoctrine()->getRepository('AppBundle:Task');
 
-        return $this->render('task/list.html.twig', array(
-                                'tasks' => $this->getDoctrine()->getRepository('AppBundle:Task')->findAll(),
-                                'overtasks' => $overtasks
-                            ));
+        $tasks = ($overtasks !== null) ? $repository->findByIsTaskDone($overtasks) : $tasks = $repository->findAllTasks();
+
+        $response = $this->render('task/list.html.twig', array(
+                                'tasks' => $tasks
+                    ));
+
+        $response->setSharedMaxAge(3600)->headers->addCacheControlDirective('must-revalidate', true);
+        return $response;
     }
 
     /**
      * @Route("/tasks/create", name="task_create")
+     * @Method({"GET", "POST"})
      */
-    public function createAction(Request $request)
+    public function createAction(Request $request, Response $response = null)
     {
         $task = new Task();
         $user = $this->getUser();
 
-        //if user don't exist author will be null then anonymous
+        //if user session don't exist author will be null then anonymous
         if($user)
         {
             $task->setAuthor($user);
@@ -42,24 +52,27 @@ class TaskController extends Controller
 
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
 
             $em->persist($task);
             $em->flush();
 
             $this->addFlash('success', 'La tâche a été bien été ajoutée.');
-
+            if($response){$response->expire();}
             return $this->redirectToRoute('task_list');
         }
 
-        return $this->render('task/create.html.twig', ['form' => $form->createView()]);
+        $response= $this->render('task/create.html.twig', ['form' => $form->createView()]);
+        $response->setSharedMaxAge(3600)->headers->addCacheControlDirective('must-revalidate', true);
+        return $response;
     }
 
     /**
      * @Route("/tasks/{id}/edit", name="task_edit")
+     * @Method({"GET", "POST"})
      */
-    public function editAction(Task $task, Request $request)
+    public function editAction(Task $task, Request $request, Response $response = null)
     {
         //we recover the user session
         $session = $this->getUser();
@@ -71,18 +84,20 @@ class TaskController extends Controller
 
             $form->handleRequest($request);
 
-            if ($form->isValid()) {
+            if ($form->isSubmitted() && $form->isValid()) {
                 $this->getDoctrine()->getManager()->flush();
 
                 $this->addFlash('success', 'La tâche a bien été modifiée.');
-
+                if($response){$response->expire();}
                 return $this->redirectToRoute('task_list');
             }
 
-            return $this->render('task/edit.html.twig', [
+            $response = $this->render('task/edit.html.twig', [
             'form' => $form->createView(),
             'task' => $task,
             ]);
+            $response->setSharedMaxAge(3600)->headers->addCacheControlDirective('must-revalidate', true);
+            return $response;
         }
         else
         {

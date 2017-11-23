@@ -2,7 +2,17 @@
 
 {% block header_img %}{% endblock %}
 
-{% block header_title %}<h1>Liste des utilisateurs</h1>{% endblock %}
+{% block header_title %}<h1>Liste des utilisateurs</h1>
+    <h5>{# total items count #}
+        <div class="count">
+            Nombre d'utilisateurs inscrits: {{ pagination.getTotalItemCount }}
+        </div>
+    </h5>{% endblock %}
+
+{% block link %}
+    <a href="{{ path('homepage') }}" class="btn btn-primary">Accueil</a>
+{% endblock %}
+{% block linkuser %}{% endblock %}
 
 {% block body %}
     {% if users|length == 0 %}
@@ -23,7 +33,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                {% for user in users %}
+                {% for user in pagination %}
                     <tr>
                         <th scope="row">{{ loop.index }}</th>
                         <td>{{ user.username }}</td>
@@ -38,5 +48,11 @@
                 </tbody>
             </table>
         </div>
+
+        {# display navigation #}
+        <div class="navigation">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+
     {% endif %}
 {% endblock %}

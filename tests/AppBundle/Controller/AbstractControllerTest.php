@@ -26,10 +26,10 @@ abstract class AbstractControllerTest extends WebTestCase
         // the firewall context defaults to the firewall name
         $firewallContext = 'main';
         
-        $token = new UsernamePasswordToken('user', null, $firewallContext, array($role));
+        $token = new UsernamePasswordToken('user27882', '1234', $firewallContext, array($role));
         $session->set('_security_'.$firewallContext, serialize($token));
         $session->save();
-        
+
         $cookie = new Cookie($session->getName(), $session->getId());
         $this->client->getCookieJar()->set($cookie);
     }
