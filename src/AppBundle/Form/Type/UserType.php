@@ -20,7 +20,7 @@ class UserType extends AbstractType
                 'type' => PasswordType::class,
                 'invalid_message' => 'Les deux mots de passe doivent correspondre.',
                 'required' => true,
-                'first_options'  => ['label' => 'Votre mot de passe actuel'],
+                'first_options'  => ['label' => 'Votre mot de passe'],
                 'second_options' => ['label' => 'Veuillez saisir votre mot de passe à nouveau'],
             ])
             ->add('email', EmailType::class, ['label' => 'Adresse email'])
