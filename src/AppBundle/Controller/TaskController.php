@@ -109,7 +109,7 @@ class TaskController extends Controller
 
     /**
      * @Route("/tasks/{id}/toggle", name="task_toggle")
-     * @Method({"POST"})
+     * @Method({"GET"})
      */
     public function toggleTaskAction(Task $task)
     {

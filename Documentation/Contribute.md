@@ -33,7 +33,6 @@ If there are new errors created by you, try to fix at less the criticals and maj
 7.If your suggest is checked then validated, so create a pull request to this repository 
 
 
-	
 Contributors : 
 	- Sarah KHALIL
 	- Aurélien THERIOT 

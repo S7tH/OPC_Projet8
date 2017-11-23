@@ -2,7 +2,7 @@
 <html lang="en">
  <head>
   <meta charset="UTF-8">
-  <title>Dashboard for E:\Logiciels_de_travail\wamp64\www\todolist\src\AppBundle/Entity</title>
+  <title>Dashboard for E:\Logiciels_de_travail\wamp64\www\todolist\src\AppBundle/Repository</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../.css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="../.css/nv.d3.min.css" rel="stylesheet" type="text/css">
@@ -19,7 +19,7 @@
      <div class="col-md-12">
       <ol class="breadcrumb">
         <li><a href="../index.html">E:\Logiciels_de_travail\wamp64\www\todolist\src\AppBundle</a></li>
-        <li><a href="index.html">Entity</a></li>
+        <li><a href="index.html">Repository</a></li>
         <li class="active">(Dashboard)</li>
 
       </ol>
@@ -59,7 +59,6 @@
         </tr>
        </thead>
        <tbody>
-       <tr><td><a href="Task.php.html#12">Task</a></td><td class="text-right">73%</td></tr>
 
        </tbody>
       </table>
@@ -113,10 +112,6 @@
         </tr>
        </thead>
        <tbody>
-       <tr><td><a href="Task.php.html#60"><abbr title="Task::getCreatedAt">getCreatedAt</abbr></a></td><td class="text-right">0%</td></tr>
-       <tr><td><a href="Task.php.html#65"><abbr title="Task::setCreatedAt">setCreatedAt</abbr></a></td><td class="text-right">0%</td></tr>
-       <tr><td><a href="Task.php.html#97"><abbr title="Task::setAuthor">setAuthor</abbr></a></td><td class="text-right">0%</td></tr>
-       <tr><td><a href="User.php.html#118"><abbr title="User::eraseCredentials">eraseCredentials</abbr></a></td><td class="text-right">0%</td></tr>
 
        </tbody>
       </table>
@@ -163,7 +158,7 @@ $(document).ready(function() {
       .yAxis.tickFormat(d3.format('d'));
 
     d3.select('#classCoverageDistribution svg')
-      .datum(getCoverageDistributionData([0,0,0,0,0,0,0,0,1,0,1,0], "Class Coverage"))
+      .datum(getCoverageDistributionData([0,0,0,0,0,0,0,0,0,0,0,1], "Class Coverage"))
       .transition().duration(500).call(chart);
 
     nv.utils.windowResize(chart.update);
@@ -181,7 +176,7 @@ $(document).ready(function() {
       .yAxis.tickFormat(d3.format('d'));
 
     d3.select('#methodCoverageDistribution svg')
-      .datum(getCoverageDistributionData([4,0,0,0,0,0,0,0,0,0,0,21], "Method Coverage"))
+      .datum(getCoverageDistributionData([0,0,0,0,0,0,0,0,0,0,0,2], "Method Coverage"))
       .transition().duration(500).call(chart);
 
     nv.utils.windowResize(chart.update);
@@ -231,7 +226,7 @@ $(document).ready(function() {
     chart.yAxis.axisLabel('Cyclomatic Complexity');
 
     d3.select('#classComplexity svg')
-      .datum(getComplexityData([[73.684210526316,12,"<a href=\"Task.php.html#12\">Task<\/a>"],[95,14,"<a href=\"User.php.html#15\">User<\/a>"]], 'Class Complexity'))
+      .datum(getComplexityData([[100,2,"<a href=\"TaskRepository.php.html#8\">TaskRepository<\/a>"]], 'Class Complexity'))
       .transition()
       .duration(500)
       .call(chart);
@@ -255,7 +250,7 @@ $(document).ready(function() {
     chart.yAxis.axisLabel('Method Complexity');
 
     d3.select('#methodComplexity svg')
-      .datum(getComplexityData([[100,1,"<a href=\"Task.php.html#49\">Task::__construct<\/a>"],[100,1,"<a href=\"Task.php.html#55\">Task::getId<\/a>"],[0,1,"<a href=\"Task.php.html#60\">Task::getCreatedAt<\/a>"],[0,1,"<a href=\"Task.php.html#65\">Task::setCreatedAt<\/a>"],[100,1,"<a href=\"Task.php.html#70\">Task::getTitle<\/a>"],[100,1,"<a href=\"Task.php.html#75\">Task::setTitle<\/a>"],[100,1,"<a href=\"Task.php.html#80\">Task::getContent<\/a>"],[100,1,"<a href=\"Task.php.html#85\">Task::setContent<\/a>"],[0,1,"<a href=\"Task.php.html#97\">Task::setAuthor<\/a>"],[100,1,"<a href=\"Task.php.html#109\">Task::getAuthor<\/a>"],[100,1,"<a href=\"Task.php.html#114\">Task::isDone<\/a>"],[100,1,"<a href=\"Task.php.html#119\">Task::toggle<\/a>"],[100,1,"<a href=\"User.php.html#51\">User::getId<\/a>"],[100,1,"<a href=\"User.php.html#56\">User::getUsername<\/a>"],[100,1,"<a href=\"User.php.html#61\">User::setUsername<\/a>"],[100,1,"<a href=\"User.php.html#66\">User::getSalt<\/a>"],[100,1,"<a href=\"User.php.html#71\">User::getPassword<\/a>"],[100,1,"<a href=\"User.php.html#76\">User::setPassword<\/a>"],[100,1,"<a href=\"User.php.html#81\">User::getEmail<\/a>"],[100,1,"<a href=\"User.php.html#86\">User::setEmail<\/a>"],[100,1,"<a href=\"User.php.html#91\">User::getRoles<\/a>"],[100,1,"<a href=\"User.php.html#96\">User::setRoles<\/a>"],[100,1,"<a href=\"User.php.html#102\">User::getRolename<\/a>"],[100,2,"<a href=\"User.php.html#107\">User::setRolename<\/a>"],[0,1,"<a href=\"User.php.html#118\">User::eraseCredentials<\/a>"]], 'Method Complexity'))
+      .datum(getComplexityData([[100,1,"<a href=\"TaskRepository.php.html#10\">TaskRepository::findAllTasks<\/a>"],[100,1,"<a href=\"TaskRepository.php.html#20\">TaskRepository::findByIsTaskDone<\/a>"]], 'Method Complexity'))
       .transition()
       .duration(500)
       .call(chart);
