@@ -5,7 +5,7 @@ Base du projet #8 : Améliorez un projet existant
 
 https://openclassrooms.com/projects/ameliorer-un-projet-existant-1
 
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/c1ce60cb-19c6-403e-bd82-145ed9b65a80/small.png)](https://insight.sensiolabs.com/projects/c1ce60cb-19c6-403e-bd82-145ed9b65a80)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/5ab69084-3666-4699-be95-b5975e5e18b2/big.png)](https://insight.sensiolabs.com/projects/5ab69084-3666-4699-be95-b5975e5e18b2)
 
 
 How to use it :
@@ -30,9 +30,9 @@ After copied (clone or download) this repository github on your computer
     - php bin/console assets/install
 
 <h2><a href="/Documentation/Authentication.md">II/How the Authentication works</a></h2>
-<br/>
+
 (For more readability go to the Documentation folder and open the file Authentication.docx)
 
 <h2><a href="/Documentation/Contribute.md">III/How to contribute to the project</a></h2>
-<br/>
+
 (For more readability go to the Documentation folder and open the file Contribute.docx)
